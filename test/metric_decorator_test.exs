@@ -17,6 +17,7 @@ defmodule MetricDecoratorTestModule do
 
   @decorate metric(TestMetricsHandler)
   def some_function(_test_pid, "AAPL" = sym) do
+    foo = "bar"
     {:ok, sym}
   end
 
@@ -49,7 +50,7 @@ defmodule Belay.Utils.MetricDecoratorTest do
   test "when pattern matched to ok handler, get result from that handler" do
     assert {:ok, "AAPL"} == MetricDecoratorTestModule.some_function(self(), "AAPL")
 
-    assert_receive {:ok_handler, "AAPL", vars: %{sym: "AAPL"}}
+    assert_receive {:ok_handler, "AAPL", vars: %{sym: "AAPL", foo: "bar"}}
   end
 
   test "when pattern matched to :error handler, get result from that handler" do

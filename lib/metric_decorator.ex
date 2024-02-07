@@ -13,11 +13,11 @@ defmodule MetricDecorator do
     target = context.name
 
     quote do
+      result = unquote(body)
+
       params =
         Kernel.binding()
         |> Enum.into(%{}, fn {k, v} -> {MetricDecorator.remove_underscore(k), v} end)
-
-      result = unquote(body)
 
       Kernel.apply(unquote(handler), unquote(target), [result, params])
 
