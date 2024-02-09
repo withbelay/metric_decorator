@@ -32,7 +32,7 @@ defmodule TypedStructCtor.MixProject do
     [
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.3", only: [:dev, :test], runtime: false},
-      {:decorator, github: "/withbelay/decorator", ref: "3f8be23bb3b60e8c49b525898492c2a52a2d5f62", override: true},
+      {:decorator, github: "/withbelay/decorator", ref: "3f8be23bb3b60e8c49b525898492c2a52a2d5f62"},
       {:ex_doc, "~> 0.30", only: :dev, runtime: false}
     ]
   end
