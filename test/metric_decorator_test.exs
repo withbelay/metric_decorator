@@ -17,7 +17,7 @@ defmodule MetricDecoratorTestModule do
 
   @decorate metric(TestMetricsHandler)
   def some_function(_test_pid, "AAPL" = sym) do
-    foo = "bar"
+    _foo = "bar"
     {:ok, sym}
   end
 
